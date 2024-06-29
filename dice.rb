@@ -11,7 +11,7 @@ BetterErrors.application_root = __dir__
 BetterErrors::Middleware.allow_ip!('0.0.0.0/0.0.0.0')
 
 get("/") do
-  "Hello, world!"
+  erb(:elephants)
 end
 
 get("/zebra") do
@@ -28,10 +28,9 @@ get("/dice/2/6") do
 
   sum = first_die + second_die
 
-  outcome = "You rolled a #{first_die} and a #{second_die} for a total of #{sum}."
+  @outcome = "You rolled a #{first_die} and a #{second_die} for a total of #{sum}."
   
-  "<h1>2d6</h1>
-  <p>#{outcome}<p>"
+  erb(:two_six)
 end
 
 get("/dice/2/10") do
@@ -40,10 +39,9 @@ get("/dice/2/10") do
 
   sum = first_die + second_die
 
-  outcome = "You rolled a #{first_die} and a #{second_die} for a total of #{sum}."
+  @outcome = "You rolled a #{first_die} and a #{second_die} for a total of #{sum}."
 
-  "<h1>2d10</h1>
-  <p>#{outcome}</p>"
+  erb(:two_ten)
 end
 
 
@@ -52,10 +50,9 @@ get("/dice/3/20") do
 
   sum = dice_rolls.sum
 
-  outcome = "You rolled a #{dice_rolls[0]}, a #{dice_rolls[1]}, and a #{dice_rolls[2]} for a total of #{sum}."
+  @outcome = "You rolled a #{dice_rolls[0]}, a #{dice_rolls[1]}, and a #{dice_rolls[2]} for a total of #{sum}."
+  erb(:three_twenty)
 
-  "<h1>3d20</h1>
-  <p>#{outcome}</p>"
 end
 
 #get("/bug") do
