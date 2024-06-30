@@ -8,6 +8,7 @@
 <body>
   <h1>2d6</h1>
   <ul>
+    <% @rolls.each do |a_roll| %>
       <li>
         <%= a_roll %>
       </li>
@@ -16,10 +17,4 @@
 </body>
 
 </html>
-#<% if @first_die==1 %>
-#  <p style="color:red"><%= @outcome %></p>
-#<% elsif @first_die >=2 %>
-#  <p style="color:blue"><%= @outcome %></p>
-#<% end %>
 
-#<p><%=@outcome%><p>

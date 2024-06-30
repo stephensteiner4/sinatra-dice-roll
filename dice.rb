@@ -23,34 +23,38 @@ get("/giraffe") do
 end
 
 get("/dice/2/6") do
-  @first_die = rand(1..6)
-  @second_die = rand(1..6)
+  @rolls = []
 
-  @sum = @first_die + @second_die
+  2.times do
+    die = rand(1..6)
 
-  @outcome = "You rolled a #{@first_die} and a #{@second_die} for a total of #{@sum}."
-  
+    @rolls.push(die)
+  end
   erb(:two_six)
 end
 
 get("/dice/2/10") do
-  first_die = rand(1..10)
-  second_die = rand(1..10)
+  @rolls = []
 
-  sum = first_die + second_die
+  2.times do
+    die = rand(1..10)
 
-  @outcome = "You rolled a #{first_die} and a #{second_die} for a total of #{sum}."
-
+    @rolls.push(die)
+  end
   erb(:two_ten)
 end
 
 
 get("/dice/3/20") do
   dice_rolls = [rand(1..20), rand(1..20), rand(1..20)]
+  @rolls = []
 
-  sum = dice_rolls.sum
+  3.times do
+    die = rand(1..20)
 
-  @outcome = "You rolled a #{dice_rolls[0]}, a #{dice_rolls[1]}, and a #{dice_rolls[2]} for a total of #{sum}."
+    @rolls.push(die)
+  end
+
   erb(:three_twenty)
 
 end
@@ -59,7 +63,7 @@ get("/dice/100/6") do
   @rolls = []
 
   100.times do
-    die = rand(100)
+    die = rand(1..6)
 
     @rolls.push(die)
   end
