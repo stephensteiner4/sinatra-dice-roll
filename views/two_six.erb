@@ -1,4 +1,25 @@
+<!DOCTYPE html>
 
-<h1>2d6</h1>
-<p><%=@outcome%><p>
+<html>
+<head>
+  <title>Dice Roll</title>
+</head>
 
+<body>
+  <h1>2d6</h1>
+  <ul>
+      <li>
+        <%= a_roll %>
+      </li>
+    <% end %>
+  </ul> 
+</body>
+
+</html>
+#<% if @first_die==1 %>
+#  <p style="color:red"><%= @outcome %></p>
+#<% elsif @first_die >=2 %>
+#  <p style="color:blue"><%= @outcome %></p>
+#<% end %>
+
+#<p><%=@outcome%><p>
